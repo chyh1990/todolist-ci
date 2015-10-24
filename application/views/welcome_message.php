@@ -1,7 +1,7 @@
 <div class="starter-template">
   <h1>TODO Example</h1>
 
-  <form class="form-inline">
+  <form class="form-inline" method="post" action="add_todo">
     <div class="form-group">
       <label for="todo">TOOD</label>
       <input type="text" class="form-control" id="todo" placeholder="Hello world">
