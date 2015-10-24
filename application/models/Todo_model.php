@@ -16,10 +16,10 @@
     return $query->result();
   }
 
-  public function new_todo($title)
+  public function new_todo($title, $desc)
   {
-    $sql = "INSERT INTO todos (title, created_at, done) VALUES (?, ?, FALSE)";
-    $this->db->query($sql, array($title, date("Y-m-d H:i:s")));
+    $sql = "INSERT INTO todos (title, description, created_at, done) VALUES (?, ?, ?, FALSE)";
+    $this->db->query($sql, array($title, $desc, date("Y-m-d H:i:s")));
   }
 
   public function finish($id)

@@ -1,13 +1,38 @@
 <div class="starter-template">
-  <h1>TODO Example</h1>
+  <div class="jumbotron">
+    <h1>TODO List Example</h1>
+    <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+    <p>
+    Powered by CodeIgniter 3.0.2.
+    </p>
+    <p class="text-right"><small>Chen Yuheng</small></p>
+    <p>
+      <a class="btn btn-lg btn-primary" href="#" role="button">View source code »</a>
+    </p>
+  </div>
 
-  <form class="form-inline" method="post" action="index.php?/todo/add">
+  <h2>Add TODO</h2>
+  <form class="form-horizontal" method="post" action="index.php?/todo/add">
     <div class="form-group">
-      <label for="todo">TOOD</label>
-      <input type="text" class="form-control" name="title" id="todo" placeholder="Hello world">
+      <label for="title" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="title" id="title" placeholder="Hello">
+      </div>
     </div>
-    <button type="submit" class="btn btn-default">Add</button>
+    <div class="form-group">
+      <label for="description" class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="description" name="description" rows="3" placeholder="optional"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Add</button>
+      </div>
+    </div>
   </form>
+
+  <hr />
 
   <table class="table table-stride">
       <thead>
