@@ -29,6 +29,8 @@ class Todo extends CI_Controller {
 
   public function add()
   {
-    echo "XXX";
+		$this->load->model('Todo_model');
+    $this->Todo_model->new_todo($_POST['title']);
+    redirect('');
   }
 }

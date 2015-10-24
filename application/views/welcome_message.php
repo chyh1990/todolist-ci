@@ -1,12 +1,12 @@
 <div class="starter-template">
   <h1>TODO Example</h1>
 
-  <form class="form-inline" method="post" action="add_todo">
+  <form class="form-inline" method="post" action="index.php?/todo/add">
     <div class="form-group">
       <label for="todo">TOOD</label>
-      <input type="text" class="form-control" id="todo" placeholder="Hello world">
+      <input type="text" class="form-control" name="title" id="todo" placeholder="Hello world">
     </div>
-    <button type="submit" class="btn btn-default">Add TODO</button>
+    <button type="submit" class="btn btn-default">Add</button>
   </form>
 
   <table class="table table-stride">
@@ -21,13 +21,19 @@
       </thead>
       <tbody>
       <?php foreach ($result as $e):?>
-        <tr>
+      <tr class="<?php echo $e->done ? 'success' : '';?>">
           <th scope="row"><?php echo $e->id;?></th>
           <td><?php echo $e->title;?></td>
           <td><?php echo $e->description;?></td>
           <td><?php echo $e->created_at;?></td>
-          <td>Ok</td>
-        </tr>
+          <td>
+          <?php
+            if(!$e->done) {
+              echo "<button class='btn btn-default btn-xs'>Finish</button>";
+            }
+          ?>
+          </td>
+      </tr>
       <?php endforeach;?>
       </tbody>
     </table>

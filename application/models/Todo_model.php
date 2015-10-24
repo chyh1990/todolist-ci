@@ -15,4 +15,11 @@
     $query = $this->db->query('SELECT * FROM todos ORDER BY id DESC LIMIT 200');
     return $query->result();
   }
+
+  public function new_todo($title)
+  {
+    $sql = "INSERT INTO todos (title, created_at, done) VALUES (?, ?, FALSE)";
+    $this->db->query($sql, array($title, date("Y-m-d H:i:s")));
+  }
 }
+
