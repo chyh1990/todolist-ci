@@ -21,5 +21,11 @@
     $sql = "INSERT INTO todos (title, created_at, done) VALUES (?, ?, FALSE)";
     $this->db->query($sql, array($title, date("Y-m-d H:i:s")));
   }
+
+  public function finish($id)
+  {
+    $sql = "UPDATE todos SET done = TRUE WHERE id = ?";
+    $this->db->query($sql, array($id));
+  }
 }
 

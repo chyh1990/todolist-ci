@@ -33,4 +33,12 @@ class Todo extends CI_Controller {
     $this->Todo_model->new_todo($_POST['title']);
     redirect('');
   }
+
+  public function finish($id)
+  {
+    // AJAX
+		$this->load->model('Todo_model');
+    $this->Todo_model->finish($id);
+    echo "OK";
+  }
 }

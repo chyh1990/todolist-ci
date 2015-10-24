@@ -29,7 +29,7 @@
           <td>
           <?php
             if(!$e->done) {
-              echo "<button class='btn btn-default btn-xs'>Finish</button>";
+              echo "<button data-todo-id=".$e->id." class='btn btn-default btn-xs finish-btn'>Finish</button>";
             }
           ?>
           </td>
@@ -38,4 +38,19 @@
       </tbody>
     </table>
 </div>
+
+<script>
+$(function() {
+  $(".finish-btn").click(function() {
+    var dom = $(this);
+    var todo_id = dom.data('todo-id');
+    $.post("index.php?/todo/finish/" + todo_id).success(function(res) {
+      // update UI
+      dom.parent().parent().addClass('success');
+      dom.remove();
+    }).error(function() { alert('error'); });
+    // console.log(todo_id);
+  });
+});
+</script>
 
